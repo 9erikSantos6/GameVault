@@ -1,7 +1,8 @@
 # GameVault
 Um CRUD para gerenciar jogos
 
-``text
+
+```text
 GameVault/
 ├── config/             # Configurações de banco de dados, variáveis de ambiente
 ├── controllers/        # Controladores: lógica de requisição/resposta (intermédio)
@@ -16,4 +17,4 @@ GameVault/
 ├── .gitignore          # Arquivos a ignorar pelo Git
 ├── app.js / index.js   # Arquivo principal de inicialização
 └── package.json        # Dependências e scripts
-``
+```
