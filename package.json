@@ -1,0 +1,21 @@
+{
+  "name": "gamevault",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/9erikSantos6/GameVault.git",
+  "author": "9erikSantos6 <9xerix6@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@sequelize/sqlite3": "^7.0.0-alpha.47",
+    "dotenv": "^17.2.3",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.12",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "sequelize-cli": "^6.6.5"
+  }
+}
