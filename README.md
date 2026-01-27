@@ -1,5 +1,9 @@
 # GameVault
-Um CRUD para gerenciar jogos
+Um CRUD simples para genrenciar jogos 
+
+- Gerencie seus jogos favoritos
+- Faça amizades
+- Empreste jogos aos seus amigos
 
 ## Dependências
 - Node v25.2.1
