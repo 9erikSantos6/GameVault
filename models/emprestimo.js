@@ -1,0 +1,33 @@
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+  class Emprestimo extends Model {
+    static associate(models) {
+      Emprestimo.belongsTo(models.Game, {
+        foreignKey: "id_game",
+        as: "game",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+      Emprestimo.belongsTo(models.Usuario, {
+        foreignKey: "id_mutuario",
+        as: "mutuario",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+    }
+  }
+  Emprestimo.init(
+    {
+      id_game: DataTypes.INTEGER,
+      id_mutuario: DataTypes.INTEGER,
+      data_inicio: DataTypes.DATE,
+      data_fim: DataTypes.DATE,
+      retornou_em: DataTypes.DATE,
+    },
+    {
+      sequelize,
+      modelName: "Emprestimo",
+    },
+  );
+  return Emprestimo;
+};

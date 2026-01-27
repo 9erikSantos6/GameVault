@@ -1,14 +1,14 @@
 {
   "development": {
     "dialect": "sqlite",
-    "storage": "./data/gamevault.dev.db"
+    "storage": "db/gamevault.dev.db"
   },
   "test": {
     "dialect": "sqlite",
-    "storage": "./data/gamevault.test.db"
+    "storage": "db/gamevault.test.db"
   },
   "production": {
     "dialect": "sqlite",
-    "storage": "./data/gamevault.prod.db"
+    "storage": "db/gamevault.prod.db"
   }
 }
