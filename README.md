@@ -10,7 +10,19 @@ Um CRUD simples para genrenciar jogos
 - Yarn v1.22.22
 
 
+
+
 ## Desenvolvimento
+**Crie as veriáveis de ambiente**
+
+Crie um aqurivo .env, copie o conteúdo de .env.example para ele
+Sseu aquivo .env deve ficar parecido com isso, por exemplo:
+```text
+PORT=3000
+NODE_ENV=DEVELOPMENT
+```
+
+
 **Instale as dependências**
 ```bash
 yarn install
