@@ -6,8 +6,8 @@ Um CRUD simples para genrenciar jogos
 - Empreste jogos aos seus amigos
 
 ## Dependências
-- Node v25.2.1
-- Yarn v1.22.22
+- Node v24.13.0
+- Yarn 
 
 
 
