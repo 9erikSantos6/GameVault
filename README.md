@@ -1,7 +1,23 @@
 # GameVault
 Um CRUD para gerenciar jogos
 
+## Dependências
+- Node v25.2.1
+- Yarn v1.22.22
 
+
+## Desenvolvimento
+**Instale as dependências**
+```bash
+yarn install
+```
+
+**Execute as migrações**
+```bash
+npx sequelize-cli db:migrate
+```
+
+## Estrutura:
 ```text
 GameVault/
 ├── config/             # Configurações de banco de dados, variáveis de ambiente
