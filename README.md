@@ -15,22 +15,31 @@ Um CRUD simples para genrenciar jogos
 ## Desenvolvimento
 **Crie as veriáveis de ambiente**
 
-Crie um aqurivo .env, copie o conteúdo de .env.example para ele
-Sseu aquivo .env deve ficar parecido com isso, por exemplo:
+Crie um arquivo ```.env```, copie o conteúdo de ```.env.example``` para ele. Observe com atenção as orientações do ```.env.example```!
+
+O Seu aquivo .env deve ficar parecido com isso, por exemplo:
 ```text
 PORT=3000
 NODE_ENV=DEVELOPMENT
+JWT_SECRET=s3nhainqueBrave12L
+JWT_INSPIRATION=1
+BCRYPTJS_SALT=10
 ```
 
 
-**Instale as dependências**
+**Instale as dependências:**
 ```bash
 yarn install
 ```
 
-**Execute as migrações**
+**Execute as migrações:**
 ```bash
 npx sequelize-cli db:migrate
+```
+
+**Inicie o servidor:**
+```bash
+node app.js
 ```
 
 ## Estrutura:
@@ -40,6 +49,7 @@ GameVault/
 ├── controllers/        # Controladores: lógica de requisição/resposta (intermédio)
 ├── models/             # Models: esquemas de banco de dados e manipulação de dados
 ├── routes/             # Definição das rotas da aplicação
+├── services/           # Logicas de interação com banco de dados
 ├── views/              # Arquivos EJS (HTML dinâmico)
 │   ├── partials/       # Componentes reutilizáveis (header, footer, nav)
 │   └── index.ejs
