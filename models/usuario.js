@@ -18,6 +18,16 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_mutuario",
         as: "emprestimos",
       });
+
+      Usuario.hasMany(models.Notificacao, {
+        foreignKey: "id_remetente",
+        as: "notificacoes_enviadas",
+      });
+
+      Usuario.hasMany(models.Notificacao, {
+        foreignKey: "id_destinatario",
+        as: "notificacoes_recebidas",
+      });
     }
   }
   Usuario.init(
