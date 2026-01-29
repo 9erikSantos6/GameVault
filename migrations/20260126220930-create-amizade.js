@@ -3,7 +3,7 @@ const { AmizadeStatus } = require("../utils/enums");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Amizade", {
+    await queryInterface.createTable("Amizades", {
       id_usuario: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -46,7 +46,7 @@ module.exports = {
     });
   },
   async down(queryInterface, _Sequelize) {
-    await queryInterface.dropTable("Amizade");
+    await queryInterface.dropTable("Amizades");
     await queryInterface.sequelize.query(
       'DROP TYPE IF EXISTS "enum_Amizade_status"',
     );
