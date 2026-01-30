@@ -3,8 +3,5 @@ const AmizadeStatus = Object.freeze({
   ACEITA: "ACEITA",
   RECUSADA: "RECUSADA",
 });
- 
 
-
-
-module.exports = {AmizadeStatus};
+module.exports = { AmizadeStatus };
