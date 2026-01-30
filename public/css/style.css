@@ -1,0 +1,178 @@
+@font-face {
+    font-family: 'SynthPixel';
+    src: url('/fonts/SynthPixel-R922e.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BLoxBrk';
+    src: url('/fonts/BloxBrk-M7Ke.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bloxat';
+    src: url('/fonts/Bloxat-PDoE.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bloxblue';
+    src: url('/fonts/Blockblueprint.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* FONTES*/
+
+.titulo{
+    font-family: 'BLoxBrk', sans-serif;
+    font-size: 48px;
+    letter-spacing: 2px;
+}
+
+.Blox{
+    font-family: 'Bloxblue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* ===== CONFIGURAÇÃO DA PÁGINA ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: white;
+    color: rgb(15, 15, 15);
+
+    min-height: 100vh;      /* altura da tela toda */
+    display: flex;
+    flex-direction: column; /* organiza header, main e footer */
+    
+}
+
+
+/* ===== CABEÇALHO ===== */
+header {
+    background-color: rgb(91, 1, 91);
+    color: white;
+    padding: 20px;
+    text-align: center;
+  
+}
+
+/* ===== CONTEÚDO ===== */
+main {
+    flex: 1;  /* faz o meio crescer e empurra o rodapé pra baixo */
+    padding: 20px;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+    background: rgb(91, 1, 91);
+    color: white;
+    padding: 30px;
+    
+}
+
+/**/
+
+.titulo{
+       font-family: 'BLoxBrk', sans-serif;
+    font-size: 48px;
+    letter-spacing: 2px;
+}
+
+.informacao{
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+    height: auto;      /*responisividade */
+
+}
+
+.imagem {
+    display: block;
+    margin: 20px auto;
+    max-width: 300px;  /* não passa disso */
+    width: 100%;       /* diminui em telas pequenas */
+    height: auto;
+}
+
+/*===== BOTÃO LOGIN ===== */
+.bnt-loggin{
+    
+    background-color: #00ff88;
+    color: rgb(255, 255, 255);
+    border: none;
+    font-weight: bold;
+    height: auto;
+    border-radius: 12px ;
+    border: 1px solid #000000;
+
+}
+
+.bnt-loggin:hover {
+    background-color: #00cc6a;
+    transform: scale(1.05);
+}
+
+.button{
+    text-align: center;
+}
+
+/**===== campo de login =====**/
+
+.campo-login{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 12px ;
+    border: #000000 1px solid;
+    padding: 30px 30px;
+    width: 100%;
+    height: 450px;
+}
+
+.campo-login > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo-login p {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+    font-size: 15px;
+    font-family: 'Bloxblue', sans-serif;
+}
+
+.campo-login input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.3s;
+}
+
+.btn-entrar {
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #00ff88;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-entrar:hover {
+    background: #00cc6a;
+    transform: scale(1.05);
+}
