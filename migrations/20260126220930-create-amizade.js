@@ -30,6 +30,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
         defaultValue: AmizadeStatus.PENDENTE,
+        validate: {
+          isIn: [
+            [
+              AmizadeStatus.PENDENTE,
+              AmizadeStatus.ACEITA,
+              AmizadeStatus.RECUSADA,
+            ],
+          ],
+        },
       },
       createdAt: {
         allowNull: false,
@@ -40,11 +49,6 @@ module.exports = {
         type: Sequelize.DATE,
       },
     });
-    await queryInterface.sequelize.query(`
-      ALTER TABLE Amizades
-      ADD CONSTRAINT check_amizade_status_enum
-      CHECK (status IN ('${AmizadeStatus.PENDENTE}', '${AmizadeStatus.ACEITA}', '${AmizadeStatus.RECUSADA}'))
-    `);
   },
 
   async down(queryInterface, _Sequelize) {
