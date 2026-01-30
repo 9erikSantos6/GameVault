@@ -27,11 +27,7 @@ module.exports = {
         onUpdate: "CASCADE",
       },
       status: {
-        type: Sequelize.ENUM(
-          AmizadeStatus.PENDENTE,
-          AmizadeStatus.ACEITA,
-          AmizadeStatus.RECUSADA,
-        ),
+        type: Sequelize.STRING,
         allowNull: false,
         defaultValue: AmizadeStatus.PENDENTE,
       },
@@ -44,11 +40,14 @@ module.exports = {
         type: Sequelize.DATE,
       },
     });
+    await queryInterface.sequelize.query(`
+      ALTER TABLE Amizades
+      ADD CONSTRAINT check_amizade_status_enum
+      CHECK (status IN ('${AmizadeStatus.PENDENTE}', '${AmizadeStatus.ACEITA}', '${AmizadeStatus.RECUSADA}'))
+    `);
   },
+
   async down(queryInterface, _Sequelize) {
     await queryInterface.dropTable("Amizades");
-    await queryInterface.sequelize.query(
-      'DROP TYPE IF EXISTS "enum_Amizade_status"',
-    );
   },
 };
