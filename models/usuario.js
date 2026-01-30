@@ -15,8 +15,13 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       Usuario.hasMany(models.Emprestimo, {
-        foreignKey: "id_mutuario",
+        foreignKey: "id_mutuante",
         as: "emprestimos",
+      });
+
+      Usuario.hasMany(models.Emprestimo, {
+        foreignKey: "id_mutuario",
+        as: "emprestimo_recebido",
       });
 
       Usuario.hasMany(models.Notificacao, {
