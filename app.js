@@ -15,10 +15,23 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (_req, res) => {
-  res.redirect("/login");
+  res.render("index");
 });
 
-app.post("/login", (_req, _res) => {});
+//paloma, teste
+app.get("/login", (_req, res) => {
+
+  res.render("login/login");
+
+});
+
+app.get("/cadastro", (_req, res) => {
+  res.render("login/cadastro");
+});
+
+app.get("/dashboard", (_req, res) => {
+  res.render("dashboard/dashboard");
+});
 
 app.listen(PORT, () => {
   console.log(`\nGameVault está rodando em ==> http://localhost:${PORT}\n`);
