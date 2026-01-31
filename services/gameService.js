@@ -2,8 +2,11 @@ const { Game } = require("../models");
 
 const GameService = {
   async criarGame(dadosGame) {
-    const gameExistente = await this.buscarGamePorId(dadosGame.id);
+    if (!dadosGame.titulo || !dadosGame.plataforma || !dadosGame.id_dono) {
+      throw new Error("Todos os campos obrigatórios devem ser preenchidos!");
+    }
 
+    const gameExistente = await this.buscarGamePorId(dadosGame.id);
     if (gameExistente) {
       throw new Error("Um game semelhante já foi cadastrado!");
     }
@@ -66,6 +69,14 @@ const GameService = {
 
     await game.destroy();
     return true;
+  },
+
+  async verificarDono(id_game, id_dono) {
+    const game = await Game.findOne({
+      where: { id: id_game, id_dono: id_dono },
+    });
+
+    return !!game;
   },
 };
 
