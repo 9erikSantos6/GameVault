@@ -40,9 +40,11 @@ module.exports = {
       },
       lida: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       lida_em: {
         type: Sequelize.DATE,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,

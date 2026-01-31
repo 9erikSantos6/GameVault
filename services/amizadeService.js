@@ -3,6 +3,10 @@ const { AmizadeStatus } = require("../utils/enums");
 
 const AmizadeService = {
   async criarAmizade(dadosAmizade) {
+    if (!dadosAmizade.id_usuario || !dadosAmizade.id_amigo) {
+      throw new Error("Os campos id_usuario e id_amigo são obrigatórios!");
+    }
+
     const amizadeExistente = await Amizade.findOne({
       where: {
         id_usuario: dadosAmizade.id_usuario,
@@ -24,12 +28,7 @@ const AmizadeService = {
   },
 
   async deletarAmizade(id_usuario, id_amigo) {
-    const amizade = await Amizade.findOne({
-      where: {
-        id_usuario,
-        id_amigo,
-      },
-    });
+    const amizade = await this.buscarAmizade(id_usuario, id_amigo);
 
     if (!amizade) {
       throw new Error("Erro ao deletar amizade: Amizade não encontrada!");
@@ -40,12 +39,7 @@ const AmizadeService = {
   },
 
   async atualizarStatusAmizade(id_usuario, id_amigo, novoStatus) {
-    const amizade = await Amizade.findOne({
-      where: {
-        id_usuario,
-        id_amigo,
-      },
-    });
+    const amizade = await this.buscarAmizade(id_usuario, id_amigo);
 
     if (!amizade) {
       throw new Error("Amizade não encontrada!");
@@ -61,22 +55,24 @@ const AmizadeService = {
     amizade.status = novoStatus;
     await amizade.save();
 
-    return amizade;
+    return amizade.reload();
   },
 
   async buscarAmizade(id_usuario, id_amigo) {
-    const amizade = await Amizade.findOne({
+    return await Amizade.findOne({
       where: {
         id_usuario,
         id_amigo,
       },
     });
+  },
 
-    if (!amizade) {
-      throw new Error("Amizade não encontrada!");
-    }
+  async buscarAmizadesPorUsuario(id_usuario) {
+    return await Amizade.findAll({ where: { id_usuario } });
+  },
 
-    return amizade;
+  async buscarAmizadesPorAmigo(id_amigo) {
+    return await Amizade.findAll({ where: { id_amigo } });
   },
 };
 
