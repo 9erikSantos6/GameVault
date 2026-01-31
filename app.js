@@ -33,6 +33,21 @@ app.get("/dashboard", (_req, res) => {
   res.render("dashboard/dashboard");
 });
 
+//Nicole, Jogos
+
+app.get("/index", (_req, res) => {
+  res.render("jogos/index");
+});
+
+app.get("/cadastrar", (_req, res) => {
+  res.render("jogos/cadastrar");
+});
+
+app.get("/editar", (_req, res) => {
+  res.render("jogos/editar");
+});
+
+
 app.listen(PORT, () => {
   console.log(`\nGameVault está rodando em ==> http://localhost:${PORT}\n`);
 });
