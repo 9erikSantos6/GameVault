@@ -20,13 +20,11 @@ app.get("/", (_req, res) => {
 
 //paloma, teste
 app.get("/login", (_req, res) => {
-
   res.render("login/login");
-
 });
 
-app.get("/cadastro", (_req, res) => {
-  res.render("login/cadastro");
+app.get("/registro", (_req, res) => {
+  res.render("login/registro");
 });
 
 app.get("/dashboard", (_req, res) => {
