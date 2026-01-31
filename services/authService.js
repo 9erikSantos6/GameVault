@@ -1,54 +1,14 @@
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const UsuarioService = require("./usuarioService");
 
 const AuthService = {
-  gerarAccessToken(usuario) {
-    if (!process.env.JWT_SECRET) {
-      throw new Error("JWT_SECRET não configurado no ambiente");
-    }
-
-    return jwt.sign(
-      {
-        id: usuario.id,
-        email: usuario.email,
-      },
-      process.env.JWT_SECRET,
-      { expiresIn: "15m" },
-    );
-  },
-
-  gerarRefreshToken(usuario) {
-    if (!process.env.JWT_SECRET) {
-      throw new Error("JWT_SECRET não configurado no ambiente");
-    }
-
-    return jwt.sign(
-      {
-        id: usuario.id,
-      },
-      process.env.JWT_SECRET,
-      { expiresIn: "7d" },
-    );
-  },
-
-  gerarTokens(usuario) {
-    return {
-      accessToken: this.gerarAccessToken(usuario),
-      refreshToken: this.gerarRefreshToken(usuario),
-    };
-  },
-
   async registrar(dados) {
     const usuario = await UsuarioService.criarUsuario(dados);
 
-    const tokens = this.gerarTokens(usuario);
+    const tokens = { ...this._gerarTokens(usuario) };
 
-    return {
-      id: usuario.id,
-      email: usuario.email,
-      ...tokens,
-    };
+    return tokens;
   },
 
   async login(email, senha) {
@@ -62,16 +22,12 @@ const AuthService = {
       throw new Error("Credenciais inválidas: senha incorreta");
     }
 
-    const tokens = this.gerarTokens(usuario);
+    const tokens = { ...this._gerarTokens(usuario) };
 
-    return {
-      id: usuario.id,
-      email: usuario.email,
-      ...tokens,
-    };
+    return tokens;
   },
 
-  async refresh(refreshToken) {
+  async fazerRefresh(refreshToken) {
     if (!refreshToken) {
       throw new Error("Refresh token não fornecido");
     }
@@ -79,7 +35,7 @@ const AuthService = {
     let decoded;
 
     try {
-      decoded = jwt.verify(refreshToken, process.env.JWT_SECRET);
+      decoded = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH);
     } catch (err) {
       if (err.name === "TokenExpiredError") {
         throw new Error("Refresh token expirado");
@@ -92,9 +48,45 @@ const AuthService = {
       throw new Error("Usuário não encontrado para o refresh token");
     }
 
+    const tokens = { ...this._gerarTokens(usuario) };
+
+    return tokens;
+  },
+
+  _gerarAccessToken(usuario) {
+    console.log(`ENV_ACESS: ${process.env.JWT_SECRET_ACESS}`);
+    if (!process.env.JWT_SECRET_ACESS) {
+      throw new Error("JWT_SECRET_ACESS não configurado no ambiente");
+    }
+
+    return jwt.sign(
+      {
+        id: usuario.id,
+        email: usuario.email,
+      },
+      process.env.JWT_SECRET_ACESS,
+      { expiresIn: "15m" },
+    );
+  },
+
+  _gerarRefreshToken(usuario) {
+    if (!process.env.JWT_SECRET_REFRESH) {
+      throw new Error("JWT_SECRET_REFRESH não configurado no ambiente");
+    }
+
+    return jwt.sign(
+      {
+        id: usuario.id,
+      },
+      process.env.JWT_SECRET_REFRESH,
+      { expiresIn: "7d" },
+    );
+  },
+
+  _gerarTokens(usuario) {
     return {
-      accessToken: this.gerarAccessToken(usuario),
-      usuario,
+      accessToken: this._gerarAccessToken(usuario),
+      refreshToken: this._gerarRefreshToken(usuario),
     };
   },
 };
