@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'SynthPixel';
+    src: url('/fonts/SynthPixel-R922e.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BLoxBrk';
+    src: url('/fonts/BloxBrk-M7Ke.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bloxat';
+    src: url('/fonts/Bloxat-PDoE.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bloxblue';
+    src: url('/fonts/Blockblueprint.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* FONTES*/
+
+.titulo {
+    font-family: 'BLoxBrk', sans-serif;
+    font-size: 48px;
+    letter-spacing: 2px;
+}
+
+.Blox {
+    font-family: 'Bloxblue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+     margin: 0;
+    padding: 0;
+}
+
+
+
+/* CONTAINER GERAL */
+.container {
+    display: flex;
+    height: 100vh; /* ocupa a tela toda */
+    margin: 0;
+}
+
+/* MENU LATERAL */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, #4b0082, #6a0dad);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    
+    position: fixed;
+    top: 0;
+    left: 0;   /* GRUDA NA ESQUERDA */
+    height: 100vh;
+    
+
+   
+}
+
+/* LINKS */
+.sidebar nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-weight: bold;
+    text-align: left;
+}
+
+.sidebar nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+/* CONTEÚDO */
+.content {
+    margin-left: 240px;
+    margin-right: -240px;
+    padding: 20px;
+    flex: 1;
+    background-color: #f4f4f4;
+    
+}
+

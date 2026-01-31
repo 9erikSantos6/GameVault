@@ -138,6 +138,13 @@ footer {
     height: 450px;
 }
 
+.campo-login img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+}
+
 .campo-login > div {
     display: flex;
     flex-direction: column;
@@ -171,6 +178,7 @@ footer {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
+    
 }
 .btn-entrar:hover {
     background: #00cc6a;
