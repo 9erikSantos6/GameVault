@@ -9,6 +9,11 @@
     src: url('/fonts/Blockblueprint.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'SuperPixel';
+    src: url('/fonts/SuperPixel.ttf') format('truetype');
+}
+
 /* TÍTULOS */
 .titulo {
     font-family: 'BLoxBrk', sans-serif;
@@ -43,4 +48,142 @@
 .content {
     background-color: #f4f4f4;
     min-height: 100vh;
+}
+
+
+/* ================= DASHBOARD ================= */
+
+.main-content {
+    padding: 30px;
+}
+
+/* ===== CARDS DE ESTATÍSTICAS ===== */
+.stats-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 220px;
+    border: none;
+    border-radius: 14px;
+    padding: 22px;
+    color: white;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    transition: 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.number {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* Cores dos cards */
+.card-blue {
+    background: linear-gradient(135deg, #1a5fb4, #3584e4);
+}
+
+.card-green {
+    background: linear-gradient(135deg, #2ec27e, #57e389);
+}
+
+.card-red {
+    background: linear-gradient(135deg, #e01b24, #ff5c5c);
+}
+
+/* ===== NOTIFICAÇÕES ===== */
+.notifications-section {
+    background: white;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+}
+
+.notif-title {
+    font-family: 'SuperPixel', sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.notification-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.notif-content {
+    flex: 1;
+}
+
+.notif-header {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.notif-text {
+    color: #666;
+    font-size: 14px;
+}
+
+/* ===== BOTÕES ===== */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-accept {
+    background-color: #2ec27e;
+    color: white;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-weight: bold;
+}
+
+.btn-accept:hover {
+    background-color: #26a269;
+}
+
+.btn-deny {
+    background-color: #e01b24;
+    color: white;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-weight: bold;
+}
+
+.btn-deny:hover {
+    background-color: #c01c28;
 }

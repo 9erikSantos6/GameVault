@@ -17,38 +17,44 @@
     <h1 class="titulo">GameVault</h1>
   </header>
 
-  <main class="main">
+  <main class="main container mt-4">
 
-    <form action="/auth/registrar" method="post">
-      <div class="auth-form">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-5">
 
-        <div>
-          <p>seu nome</p>
-          <input name="nome" id="usuario-nome" type="text" placeholder="name" class="form-control" required>
-        </div>
+        <form action="/auth/registrar" method="post" class="auth-form shadow rounded p-4">
 
-        <div>
-          <p>seu email</p>
-          <input name="email" id="usuario-email" type="email" placeholder="email" class="form-control" required>
-        </div>
+          <div class="mb-3">
+            <p>Seu nome</p>
+            <input name="nome" id="usuario-nome" type="text" placeholder="Nome" class="form-control" required>
+          </div>
 
-        <div>
-          <p>sua senha</p>
-          <input name="senha" id="usuario-senha" type="password" placeholder="senha" class="form-control" required>
-        </div>
+          <div class="mb-3">
+            <p>Seu email</p>
+            <input name="email" id="usuario-email" type="email" placeholder="Email" class="form-control" required>
+          </div>
 
-        <div>
-          <p>Confirme sua senha</p>
-          <input id="usuario-senha-confirm" type="password" placeholder="senha" class="form-control" required>
-        </div>
+          <div class="mb-3">
+            <p>Sua senha</p>
+            <input name="senha" id="usuario-senha" type="password" placeholder="Senha" class="form-control" required>
+          </div>
 
-        <div>
-          <button class="btn-entrar" id="btnEntrar" type="submit">Registrar</button>
-        </div>
+          <div class="mb-3">
+            <p>Confirme sua senha</p>
+            <input id="usuario-senha-confirm" type="password" placeholder="Senha" class="form-control" required>
+          </div>
+
+          <div class="d-grid mt-3">
+            <button class="btn-confirmar" id="btnEntrar" type="submit">Registrar</button>
+          </div>
+
+        </form>
 
       </div>
-    </form>
+    </div>
+
   </main>
+
 
 
   <footer class="footer">
