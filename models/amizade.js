@@ -1,4 +1,6 @@
 const { Model } = require("sequelize");
+const { AmizadeStatus } = require("../utils/enums");
+
 module.exports = (sequelize, DataTypes) => {
   class Amizade extends Model {
     static associate(models) {
@@ -20,6 +22,11 @@ module.exports = (sequelize, DataTypes) => {
     {
       id_usuario: DataTypes.INTEGER,
       id_amigo: DataTypes.INTEGER,
+      status: DataTypes.ENUM(
+        AmizadeStatus.PENDENTE,
+        AmizadeStatus.ACEITA,
+        AmizadeStatus.RECUSADA,
+      ),
     },
     {
       sequelize,

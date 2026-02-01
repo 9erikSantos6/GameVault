@@ -2,9 +2,15 @@ const { UsuarioService } = require("../services");
 
 const UsuarioController = {
   async getUsuarioPorEmail(req, res) {
-    const { email } = req.query;
-
     try {
+      const { email } = req.query;
+
+      if (!email) {
+        return res.status(400).render("error", {
+          error: "Email não informado",
+        });
+      }
+
       const usuario = await UsuarioService.buscarUsuarioPorEmail(email);
 
       if (!usuario) {
@@ -18,28 +24,37 @@ const UsuarioController = {
         nome: usuario.nome,
         email: usuario.email,
       });
-    } catch (err) {
+    } catch (error) {
+      console.error("[UsuarioController] getUsuarioPorEmail:", error);
+
       return res.status(500).render("error", {
-        error: err.message,
+        error: "Erro interno ao buscar usuário",
       });
     }
   },
 
   async criarUsuario(req, res) {
-    const { nome, email, senha } = req.body;
-    const dadosUsuario = { nome, email, senha };
-
     try {
-      const usuario = await UsuarioService.criarUsuario(dadosUsuario);
+      const { nome, email, senha } = req.body;
+
+      if (!nome || !email || !senha) {
+        return res.status(400).render("registrar", {
+          error: "Preencha todos os campos",
+        });
+      }
+
+      const usuario = await UsuarioService.criarUsuario({ nome, email, senha });
 
       return res.status(201).render("user", {
         id: usuario.id,
         nome: usuario.nome,
         email: usuario.email,
       });
-    } catch (err) {
+    } catch (error) {
+      console.error("[UsuarioController] criarUsuario:", error);
+
       return res.status(400).render("registrar", {
-        error: err.message,
+        error: "Não foi possível criar o usuário",
       });
     }
   },
@@ -48,20 +63,20 @@ const UsuarioController = {
     try {
       const usuarios = await UsuarioService.buscarTodosUsuarios();
 
-      return res.status(200).render("users", {
-        usuarios,
-      });
-    } catch (err) {
+      return res.status(200).render("users", { usuarios });
+    } catch (error) {
+      console.error("[UsuarioController] buscarTodosUsuarios:", error);
+
       return res.status(500).render("error", {
-        error: err.message,
+        error: "Erro ao buscar usuários",
       });
     }
   },
 
   async buscarUsuarioPorId(req, res) {
-    const { id } = req.params;
-
     try {
+      const { id } = req.params;
+
       const usuario = await UsuarioService.buscarUsuarioPorId(id);
 
       if (!usuario) {
@@ -75,29 +90,35 @@ const UsuarioController = {
         nome: usuario.nome,
         email: usuario.email,
       });
-    } catch (err) {
+    } catch (error) {
+      console.error("[UsuarioController] buscarUsuarioPorId:", error);
+
       return res.status(500).render("error", {
-        error: err.message,
+        error: "Erro ao buscar usuário",
       });
     }
   },
 
   async deletarUsuarioPorId(req, res) {
-    const { id } = req.params;
-
     try {
-      const resultado = await UsuarioService.deletarUsuarioPorId(id);
+      const { id } = req.params;
 
-      if (!resultado) {
+      const deletado = await UsuarioService.deletarUsuarioPorId(id);
+
+      if (!deletado) {
         return res.status(404).render("error", {
           error: "Usuário não encontrado",
         });
       }
 
-      return res.status(200).json({ message: "Usuário deletado com sucesso!" });
-    } catch (err) {
+      return res.status(200).render("success", {
+        message: "Usuário deletado com sucesso",
+      });
+    } catch (error) {
+      console.error("[UsuarioController] deletarUsuarioPorId:", error);
+
       return res.status(500).render("error", {
-        error: err.message,
+        error: "Erro ao deletar usuário",
       });
     }
   },

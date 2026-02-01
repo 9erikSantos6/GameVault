@@ -2,66 +2,51 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 
 <body>
 
-    <header class="header">
-        <h1 class="titulo">GameVault</h1>
-    </header>
+  <header class="header">
+    <h1 class="titulo">GameVault</h1>
+  </header>
 
-    <main class="main">
+  <main class="main">
+    <form action="/auth/login" method="post" class="auth-form">
 
-        <div class="campo-login">
+      <div>
+        <p>seu email</p>
+        <input name="email" type="email" placeholder="email" class="form-control">
+      </div>
 
-            <form action="" method="post">
+      <div>
+        <p>sua senha</p>
+        <input name="senha" type="password" placeholder="senha" class="form-control">
+      </div>
 
-                <div>
-                    <p>seu email </p>
-                    <input type="email" placeholder="email" id="email" class="form-control">
-                </div>
+      <div>
+        <button class="btn-entrar" id="btnEntrar">Entrar</button>
+      </div>
 
-                <div>
-                    <p>sua senha</p>
-                    <input type="password" placeholder="senha" id="senha" class="form-control">
-                </div>
+      <a href="/dashboard">teste para a pg principal</a>
 
-                <button type="button" class="btn-entrar" id="btnEntrar">Entrar</button>
+    </form>
 
-                <p id="mensagem" class="mt-2"></p>
-                
-                <div>
-                    <img src="/image/mario.gif" alt="mario" id="mario">
-                </div>
-
-            </form>
-
-            
-
-        </div>
-
-    </main>
+  </main>
+  <footer class="footer">
+  </footer>
 
 
-    <footer class="footer">
-
-    </footer>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-        </script>
-
-    <script src="/js/login/btnlogin.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

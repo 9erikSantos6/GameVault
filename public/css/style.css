@@ -110,7 +110,7 @@ footer {
     font-weight: bold;
     height: auto;
     border-radius: 12px ;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
 
 }
 
@@ -123,9 +123,9 @@ footer {
     text-align: center;
 }
 
-/**===== campo de login =====**/
+/**===== formulário de autoenticação =====**/
 
-.campo-login{
+.auth-form{
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -138,20 +138,13 @@ footer {
     height: 450px;
 }
 
-.campo-login img {
-    width: 100%;
-    height: auto;
-    max-height: 150px;
-    object-fit: contain;
-}
-
-.campo-login > div {
+.auth-form > div {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.campo-login p {
+.auth-form p {
     margin: 0;
     font-weight: bold;
     color: #333;
@@ -159,7 +152,7 @@ footer {
     font-family: 'Bloxblue', sans-serif;
 }
 
-.campo-login input {
+.auth-form input {
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;

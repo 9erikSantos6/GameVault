@@ -1,7 +1,9 @@
 /** @type {import('sequelize-cli').Migration} */
+const { AmizadeStatus } = require("../utils/enums");
+
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Amizade", {
+    await queryInterface.createTable("Amizades", {
       id_usuario: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -24,6 +26,20 @@ module.exports = {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
+      status: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: AmizadeStatus.PENDENTE,
+        validate: {
+          isIn: [
+            [
+              AmizadeStatus.PENDENTE,
+              AmizadeStatus.ACEITA,
+              AmizadeStatus.RECUSADA,
+            ],
+          ],
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -34,7 +50,8 @@ module.exports = {
       },
     });
   },
+
   async down(queryInterface, _Sequelize) {
-    await queryInterface.dropTable("Amizade");
+    await queryInterface.dropTable("Amizades");
   },
 };

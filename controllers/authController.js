@@ -1,39 +1,76 @@
 const AuthService = require("../services/authService");
+const { StatusCodes } = require("http-status-codes");
 
 const AuthController = {
   async registrar(req, res) {
-    const { nome, email, senha } = req.body;
-    const dadosUsuario = { nome, email, senha };
-
     try {
-      const autenticacaoDados = await AuthService.registrar(dadosUsuario);
+      const { nome, email, senha } = req.body;
+      const dadosUsuario = { nome, email, senha };
 
-      return res.status(201).render("user", {
-        usuario: autenticacaoDados.usuario,
-        accessToken: autenticacaoDados.accessToken,
-        refreshToken: autenticacaoDados.refreshToken,
+      const registroTokens = await AuthService.registrar(dadosUsuario);
+
+      res.cookie("refreshToken", registroTokens.refreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "PRODUCTION", // para funcionar com http tem que ser false
+        sameSite: "Strict",
       });
+
+      return res.json({ accessToken: registroTokens.accessToken });
     } catch (err) {
-      return res.status(400).render("registrar", {
-        error: err.message,
+      console.error("Erro de autenticação:", err.message);
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        error: "Erro ao registrar usuário. Verifique os dados fornecidos.",
       });
     }
   },
 
   async login(req, res) {
-    const { email, senha } = req.body;
-
     try {
-      const autenticacaoDados = await AuthService.login(email, senha);
+      const { email, senha } = req.body;
 
-      return res.status(200).render("user", {
-        usuario: autenticacaoDados.usuario,
-        accessToken: autenticacaoDados.accessToken,
-        refreshToken: autenticacaoDados.refreshToken,
+      const loginTokens = await AuthService.login(email, senha);
+
+      res.cookie("refreshToken", loginTokens.refreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "PRODUCTION", // para funcionar com http tem que ser false
+        sameSite: "Strict",
       });
+
+      return res
+        .status(StatusCodes.OK)
+        .json({ accessToken: loginTokens.accessToken });
     } catch (err) {
-      return res.status(401).render("login", {
-        error: err.message,
+      console.error("Erro de autenticação:", err.message);
+
+      return res.status(StatusCodes.UNAUTHORIZED).json({
+        error: "Credenciais inválidas. Verifique seu email e senha.",
+      });
+    }
+  },
+
+  async refresh(req, res) {
+    try {
+      const refreshToken = req.cookies.refreshToken;
+
+      if (!refreshToken) {
+        return res.status(StatusCodes.UNAUTHORIZED).json({
+          error: "Token de atualização não fornecido. Faça login novamente.",
+        });
+      }
+
+      const novoRefresh = await AuthService.fazerRefresh(refreshToken);
+
+      res.cookie("refreshToken", novoRefresh.refreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "PRODUCTION", // para funcionar com http tem que ser false
+        sameSite: "Strict",
+      });
+
+      return res.json({ accessToken: novoRefresh.accessToken });
+    } catch (err) {
+      console.error("Erro de autenticação:", err.message);
+      return res.status(StatusCodes.FORBIDDEN).json({
+        error: "Token de atualização inválido. Faça login novamente.",
       });
     }
   },
