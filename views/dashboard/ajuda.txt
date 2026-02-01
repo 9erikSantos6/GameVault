@@ -1,0 +1,33 @@
+<div class="notifications-section">
+    <h3 class="notif-title">Notificações</h3>
+
+    <% notificacoes.forEach(n => { %>
+        <div class="notification-item">
+            <div class="avatar" style="background-color: <%= n.cor %>;">
+                <%= n.avatar %>
+            </div>
+
+            <div class="notif-content">
+                <% if (n.tipo === "amizade") { %>
+                    <div class="notif-header">Pedido de Amizade</div>
+                    <div class="notif-text"><%= n.nome %></div>
+                <% } %>
+
+                <% if (n.tipo === "emprestimo") { %>
+                    <div class="notif-header">Solicitação de Empréstimo</div>
+                    <div class="notif-text">
+                        <strong><%= n.nome %></strong> está pedindo o empréstimo do jogo
+                        <strong><%= n.jogo %></strong>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-accept">✓ Aceitar</button>
+                <button class="btn btn-deny">Recusar</button>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+esse codigo funciona para que as notificações sejam dinamicas?

@@ -13,30 +13,93 @@
 
 <body>
 
-<div class="container-fluid">
-  <div class="row">
+    <div class="container-fluid">
+        <div class="row">
 
-    <!-- SIDEBAR -->
-    <aside class="col-12 col-md-3 col-lg-2 sidebar text-white p-3">
-      <h2 class="titulo text-center">GameVault</h2>
+            <!-- SIDEBAR -->
+            <aside class="col-12 col-md-3 col-lg-2 sidebar text-white p-3">
+                <h2 class="titulo text-center">GameVault</h2>
 
-      <nav class="nav flex-column mt-4">
-        <a class="nav-link text-white" href="#">🎮 Jogos</a>
-        <a class="nav-link text-white" href="#">👥 Amigos</a>
-        <a class="nav-link text-white" href="#">📁 Empréstimos</a>
-      </nav>
-    </aside>
+                <nav class="nav flex-column mt-4">
+                    <a class="nav-link text-white" href="#">🎮 Jogos</a>
+                    <a class="nav-link text-white" href="#">👥 Amigos</a>
+                    <a class="nav-link text-white" href="#">📁 Empréstimos</a>
+                </nav>
+            </aside>
 
-    <!-- CONTEÚDO -->
-    <main class="col-12 col-md-9 col-lg-10 content p-4">
-      <h1>Bem-vinda 👋</h1>
-      <p>Seu conteúdo principal aparece aqui.</p>
-    </main>
+            <!-- CONTEÚDO -->
+            <main class="col-12 col-md-9 col-lg-10 content p-4">
+                <h1>Bem-vindo 👋</h1>
+                
 
-  </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+                <div class="main-content">
+
+                    <div class="stats-container">
+                        <div class="card card-blue">
+                            <h3>Meus Jogos</h3>
+                            <!-- variavel para emprestimos-->
+                            <div class="number">12</div>
+                        </div>
+                        <div class="card card-green">
+                            <h3>Disponíveis</h3>
+                            <!-- variavel para jogos disponiveis-->
+                            <div class="number">8</div>
+                        </div>
+                        <div class="card card-red">
+                            <h3>Emprestados</h3>
+                            <!-- variavel para jogos disponiveis-->
+                            <div class="number">4</div>
+                        </div>
+                    </div>
+
+
+                    
+
+                    <!-- variavel para notificações-->
+
+                    <div class="notifications-section">
+                        <h3 class="notif-title">Notificações</h3>
+
+                        <div class="notification-item">
+                            <div class="avatar" style="background-color: #cce5ff;">👦🏻</div>
+                            <div class="notif-content">
+                                <div class="notif-header">Pedido de Amizade</div>
+                                <!-- variavel para o nome da pessoa-->
+                                <div class="notif-text">Carlos</div>
+                            </div>
+                            <div class="actions">
+                                <!-- variavel para  acietar e negar-->
+                                <button class="btn btn-accept">✓ Aceitar</button>
+                                <button class="btn btn-deny">Recusar</button>
+                            </div>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="avatar" style="background-color: #ffdce0;">👩🏻</div>
+                            <div class="notif-content">
+                                <div class="notif-header">Solicitação de Empréstimo</div>
+                                <div class="notif-text">
+                                    <strong>Maria</strong> está pedindo o empréstimo do jogo <strong>The Last of Us
+                                        2</strong>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-accept">✓ Aceitar</button>
+                                <button class="btn btn-deny">Recusar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -80,17 +80,14 @@ footer {
 
 /**/
 
-.titulo{
-       font-family: 'BLoxBrk', sans-serif;
-    font-size: 48px;
-    letter-spacing: 2px;
-}
 
 .informacao{
     border: 1px solid rgb(0, 0, 0);
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
-    height: auto;      /*responisividade */
-
+    height: auto;
+    border-radius: 12px;
+    background: white;
+    padding: 20px;
 }
 
 .imagem {
@@ -135,7 +132,7 @@ footer {
     border: #000000 1px solid;
     padding: 30px 30px;
     width: 100%;
-    height: 450px;
+    min-height: 450px;
 }
 
 .auth-form > div {
@@ -152,28 +149,30 @@ footer {
     font-family: 'Bloxblue', sans-serif;
 }
 
-.auth-form input {
-    padding: 10px;
+.auth-form input.form-control {
     border-radius: 8px;
     border: 1px solid #ccc;
-    outline: none;
-    transition: 0.3s;
+    box-shadow: none;
+}
+.bnt-loggin,
+.btn-entrar {
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.btn-entrar {
-    margin-top: 10px;
+.btn-confirmar {
+    background-color: #28a745; /* verde */
+    color: #ffffff; /* branco */
+    border: none;
     padding: 12px;
     border-radius: 10px;
-    border: none;
-    background: #00ff88;
-    color: black;
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
-    
 }
-.btn-entrar:hover {
-    background: #00cc6a;
-    transform: scale(1.05);
+
+.btn-confirmar:hover {
+    background-color: #218838; /* verde mais escuro ao passar o mouse */
 }

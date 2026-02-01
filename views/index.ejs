@@ -17,31 +17,45 @@
     <h1 class="titulo">GameVault</h1>
   </header>
 
-  <main class="main">
+  <main class="main container mt-4">
 
-    <div class="imagem">
-      <img src="/image/mario.gif" alt="mario" style="max-width: 300px;">
-    </div>
+    <div class="row align-items-center justify-content-center">
 
-    <div class="informacao">
-      <p class="Blox">Esta é uma variante do GameVault, desenvolvida pelos alunos de ADS – Módulo IV.
-        A plataforma é voltada para o universo dos jogos, permitindo que os usuários visualizem,
-        compartilhem e emprestem jogos entre si.</p>
+      <!-- IMAGEM -->
+      <div class="col-12 col-md-5 text-center mb-4 mb-md-0">
+        <div class="imagem">
+          <img src="/image/mario.gif" alt="mario" class="img-fluid" style="max-width: 300px;">
+        </div>
+      </div>
 
-      <p class="Blox">
-        Além disso, o sistema também incentiva a interação social, possibilitando que você faça amigos dentro da
-        plataforma
-        e se conecte com outras pessoas que compartilham o mesmo interesse por games.
-      </p>
+      <!-- TEXTO -->
+      <div class="col-12 col-md-7">
+        <div class="informacao p-4 shadow rounded">
 
-      <div class="button">
-        <a href="/auth/login" class="bnt-loggin">Login</a>
-        <a href="/auth/registrar" class="bnt-loggin">Registrar</a>
+          <p class="Blox">
+            Esta é uma variante do GameVault, desenvolvida pelos alunos de ADS – Módulo IV.
+            A plataforma é voltada para o universo dos jogos, permitindo que os usuários visualizem,
+            compartilhem e emprestem jogos entre si.
+          </p>
+
+          <p class="Blox">
+            Além disso, o sistema também incentiva a interação social, possibilitando que você faça amigos
+            dentro da plataforma e se conecte com outras pessoas que compartilham o mesmo interesse por games.
+          </p>
+
+          <div class="button mt-4 d-flex justify-content-center gap-3 flex-wrap">
+            <a href="/auth/login" class="bnt-loggin btn px-4 py-2">Login</a>
+            <a href="/auth/registrar" class="bnt-loggin btn px-4 py-2">Registrar</a>
+          </div>
+
+        </div>
       </div>
 
     </div>
 
   </main>
+
+ 
 
 
   <footer class="footer">
