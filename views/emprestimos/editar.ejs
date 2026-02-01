@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>GameVault - Gerenciar Empréstimo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="d-flex">
+    <nav class="sidebar p-3 text-white"><h2 class="brand mb-4">🎮 GameVault</h2></nav>
+    <main class="main-content flex-grow-1 p-4">
+        <h2 class="mb-4">✏️ Detalhes do Empréstimo</h2>
+        <div class="card shadow-sm col-md-6">
+            <div class="card-body text-center p-5">
+                <h4>O jogo foi devolvido?</h4>
+                <p class="mt-3"><strong>Jogo:</strong> <%= emprestimo.game.titulo %></p>
+                <p><strong>Com:</strong> <%= emprestimo.mutuario.nome %></p>
+                <p class="text-danger small">Prazo: <%= emprestimo.data_fim %></p>
+                <div class="mt-4 d-grid gap-2">
+                    <form action="/emprestimos/devolver/<%= emprestimo.id %>" method="POST">
+                        <button type="submit" class="btn btn-success btn-lg w-100">Confirmar Devolução</button>
+                    </form>
+                    <a href="/emprestimos" class="btn btn-outline-secondary">Ainda não recebi</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

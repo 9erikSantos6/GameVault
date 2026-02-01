@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>GameVault - Novo Empréstimo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="d-flex">
+    <nav class="sidebar p-3 text-white"><h2 class="brand mb-4">🎮 GameVault</h2></nav>
+    <main class="main-content flex-grow-1 p-4">
+        <h2 class="mb-4">🤝 Realizar Empréstimo</h2>
+        <div class="card shadow-sm col-md-6">
+            <div class="card-body">
+                <form action="/emprestimos/salvar" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label font-weight-bold">Jogo Selecionado</label>
+                        <input type="text" class="form-control bg-light" value="<%= jogo.titulo %>" readonly>
+                        <input type="hidden" name="jogoId" value="<%= jogo.id %>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label font-weight-bold">Emprestar para qual Amigo?</label>
+                        <select name="amigoId" class="form-select" required>
+                            <% amigos.forEach(amigo => { %>
+                                <option value="<%= amigo.id %>"><%= amigo.nome %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success">Confirmar Empréstimo</button>
+                    <a href="/emprestimos" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,19 @@
+/* Estilo específico para solicitações e lista de amigos */
+.card-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.status-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.PENDENTE { color: #e5a50a; }
+.ACEITA { color: #1a5fb4; }
+.RECUSADA { color: #e01b24; }
+
+.btn-group .btn {
+    border-radius: 4px;
+    margin-left: 5px;
+}
