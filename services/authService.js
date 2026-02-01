@@ -28,22 +28,9 @@ const AuthService = {
   },
 
   async fazerRefresh(refreshToken) {
-    if (!refreshToken) {
-      throw new Error("Refresh token não fornecido");
-    }
+    const userDecoded = this.desencriptarRefreshToken(refreshToken);
 
-    let decoded;
-
-    try {
-      decoded = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH);
-    } catch (err) {
-      if (err.name === "TokenExpiredError") {
-        throw new Error("Refresh token expirado");
-      }
-      throw new Error("Refresh token inválido");
-    }
-
-    const usuario = await UsuarioService.buscarUsuarioPorId(decoded.id);
+    const usuario = await UsuarioService.buscarUsuarioPorId(userDecoded.id);
     if (!usuario) {
       throw new Error("Usuário não encontrado para o refresh token");
     }
@@ -53,8 +40,49 @@ const AuthService = {
     return tokens;
   },
 
+  desencriptarAcessToken(acessToken) {
+    if (!acessToken) {
+      throw new Error("Token de acesso não fornecido!");
+    }
+
+    try {
+      const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET_ACESS);
+      return decoded;
+    } catch (err) {
+      if (err.name === "TokenExpiredError") {
+        throw new Error("Refresh token expirado");
+      }
+      throw new Error("Refresh token inválido");
+    }
+  },
+
+  desencriptarRefreshToken(acessToken) {
+    if (!acessToken) {
+      throw new Error("Token de acesso não fornecido!");
+    }
+
+    try {
+      decoded = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH);
+    } catch (err) {
+      if (err.name === "TokenExpiredError") {
+        throw new Error("Refresh token expirado");
+      }
+      throw new Error("Refresh token inválido");
+    }
+  },
+
+  pegarTokenDoHeader(authHeader) {
+    if (!authHeader) {
+      return null;
+    }
+    const [scheme, token] = authHeader.split(" ");
+    if (scheme !== "Bearer" || !token) {
+      return null;
+    }
+    return token;
+  },
+
   _gerarAccessToken(usuario) {
-    console.log(`ENV_ACESS: ${process.env.JWT_SECRET_ACESS}`);
     if (!process.env.JWT_SECRET_ACESS) {
       throw new Error("JWT_SECRET_ACESS não configurado no ambiente");
     }

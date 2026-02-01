@@ -33,21 +33,19 @@ app.get("/dashboard", (_req, res) => {
   res.render("dashboard/dashboard");
 });
 
-
 //Nicole, Jogos
 
-app.get("/index", (_req, res) => {
-  res.render("jogos/index");
+app.get("/usuario", (_req, res) => {
+  res.render("usuario");
 });
 
-app.get("/cadastrar", (_req, res) => {
-  res.render("jogos/cadastrar");
+app.get("/usuario/cadastrar-jogo", (_req, res) => {
+  res.render("usuario/cadastro-jogo");
 });
 
-app.get("/editar", (_req, res) => {
-  res.render("jogos/editar");
+app.get("/usuario/editar-jogo", (_req, res) => {
+  res.render("usuario/editar-jogo");
 });
-
 
 app.post("/auth/registrar", AuthController.registrar);
 app.post("/auth/login", AuthController.login);
