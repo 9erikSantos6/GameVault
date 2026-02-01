@@ -171,6 +171,7 @@ footer {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
+    
 }
 .btn-entrar:hover {
     background: #00cc6a;
