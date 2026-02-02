@@ -187,3 +187,7 @@
 .btn-deny:hover {
     background-color: #c01c28;
 }
+
+.card label {
+    color: #212529; /* cor padrão Bootstrap */
+}
