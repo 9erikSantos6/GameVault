@@ -4,33 +4,46 @@
     <meta charset="UTF-8">
     <title>GameVault - Novo Empréstimo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/amizade.css">
 </head>
-<body class="d-flex">
-    <nav class="sidebar p-3 text-white"><h2 class="brand mb-4">🎮 GameVault</h2></nav>
-    <main class="main-content flex-grow-1 p-4">
-        <h2 class="mb-4">🤝 Realizar Empréstimo</h2>
-        <div class="card shadow-sm col-md-6">
-            <div class="card-body">
-                <form action="/emprestimos/salvar" method="POST">
-                    <div class="mb-3">
-                        <label class="form-label font-weight-bold">Jogo Selecionado</label>
-                        <input type="text" class="form-control bg-light" value="<%= jogo.titulo %>" readonly>
-                        <input type="hidden" name="jogoId" value="<%= jogo.id %>">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label font-weight-bold">Emprestar para qual Amigo?</label>
-                        <select name="amigoId" class="form-select" required>
-                            <% amigos.forEach(amigo => { %>
-                                <option value="<%= amigo.id %>"><%= amigo.nome %></option>
-                            <% }) %>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-success">Confirmar Empréstimo</button>
-                    <a href="/emprestimos" class="btn btn-secondary">Cancelar</a>
-                </form>
-            </div>
+<body>
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <nav class="col-md-2 bg-purple-sidebar p-3 text-white shadow">
+                <div class="brand-font mb-4 mt-2 px-2 text-uppercase">🎮 GAMEVAULT</div>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item"><a href="/dashboard" class="nav-link text-white">🏠 Dashboard</a></li>
+                    <li><a href="/amizade" class="nav-link text-white">👥 Amigos</a></li>
+                    <li><a href="/emprestimos" class="nav-link active text-white">🤝 Empréstimos</a></li>
+                </ul>
+            </nav>
+
+            <main class="col-md-10 p-5 bg-light" style="min-height: 100vh;">
+                <h2 class="mb-4">🤝 Realizar Empréstimo</h2>
+                <div class="card border-0 shadow-sm p-4 rounded-4 col-md-8">
+                    <form action="/emprestimos/salvar" method="POST">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Jogo Selecionado</label>
+                            <input type="text" class="form-control form-control-lg bg-light border-0" value="<%= jogo.titulo %>" readonly>
+                            <input type="hidden" name="jogoId" value="<%= jogo.id %>">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Emprestar para qual Amigo?</label>
+                            <select name="amigoId" class="form-select form-select-lg" required>
+                                <% amigos.forEach(amigo => { %>
+                                    <option value="<%= amigo.id %>">@<%= amigo.nome %></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-success px-4">Confirmar Empréstimo</button>
+                            <a href="/emprestimos" class="btn btn-outline-secondary px-4">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </main>
         </div>
-    </main>
+    </div>
 </body>
 </html>

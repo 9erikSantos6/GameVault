@@ -1,19 +1,51 @@
-/* Estilo específico para solicitações e lista de amigos */
-.card-title {
-    font-weight: bold;
-    color: #333;
+/* public/css/amizade.css */
+.bg-purple-sidebar {
+    background-color: #5a009d !important; /* Roxo do GameVault */
+    min-width: 250px;
+    min-height: 100vh;
 }
 
-.status-label {
+.brand-font {
+    font-family: 'BLoxBrk', sans-serif; /* Usa sua fonte do style.css */
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
+    color: white;
 }
 
-.PENDENTE { color: #e5a50a; }
-.ACEITA { color: #1a5fb4; }
-.RECUSADA { color: #e01b24; }
+.nav-link {
+    transition: 0.3s;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    color: white !important;
+}
 
-.btn-group .btn {
-    border-radius: 4px;
-    margin-left: 5px;
+.nav-link:hover, .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* public/css/amizade.css */
+
+.bg-purple-sidebar {
+    background-color: #5a009d !important;
+    min-width: 250px;
+    min-height: 100vh;
+    /* Fonte para os itens do menu */
+    font-family: 'Bloxblue', sans-serif; 
+}
+
+.brand-font {
+    /* Fonte para o logo GAMEVAULT */
+    font-family: 'BLoxBrk', sans-serif;
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.nav-link {
+    transition: 0.3s;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    color: white !important;
+    font-size: 14px; /* Ajuste para caber bem o texto pixelado */
 }
