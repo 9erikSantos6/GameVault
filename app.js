@@ -47,6 +47,95 @@ app.get("/usuario/editar-jogo", (_req, res) => {
   res.render("usuario/editar-jogo");
 });
 
+// =========================================================
+// ROTAS TEMPORÁRIAS PARA VISUALIZAR O FRONT-END (AMIZADE)
+// =========================================================
+
+// 1. Tela Principal de Amigos (Lista e Solicitações)
+app.get("/amizade", (req, res) => {
+  res.render("amizade/index", {
+    // Dados falsos para testar o visual
+    solicitacoes: [
+      { id: 1, usuario: { nome: "Lucas Silva", email: "lucas@email.com" } }
+    ],
+    amigos: [
+      { id: 10, nome: "Maria Oliveira", email: "maria@email.com" },
+      { id: 11, nome: "João Pedro", email: "joao@email.com" }
+    ]
+  });
+});
+
+// 2. Tela de Adicionar Amigo
+app.get("/amizade/novo", (req, res) => {
+  res.render("amizade/novo");
+});
+
+// 3. Tela de Gerenciar Amigo (Editar)
+app.get("/amizade/editar/:id", (req, res) => {
+  res.render("amizade/editar", {
+    amigo: { id: 10, nome: "Maria Oliveira", email: "maria@email.com" },
+    amizade: { createdAt: "2025-10-15" }
+  });
+});
+
+
+// =========================================================
+// ROTAS TEMPORÁRIAS PARA VISUALIZAR O FRONT-END (EMPRÉSTIMOS)
+// =========================================================
+
+// 1. Tela Principal de Empréstimos (Abas Emprestei/Peguei)
+app.get("/emprestimos", (req, res) => {
+  res.render("emprestimos/index", {
+    emprestimosFeitos: [
+      { 
+        id: 1, 
+        game: { titulo: "God of War" }, 
+        mutuario: { nome: "Maria Oliveira" }, 
+        data_inicio: "2026-02-01", 
+        retornou_em: null 
+      },
+      { 
+        id: 2, 
+        game: { titulo: "The Last of Us" }, 
+        mutuario: { nome: "João Pedro" }, 
+        data_inicio: "2026-01-10", 
+        retornou_em: "2026-01-20" 
+      }
+    ],
+    emprestimosRecebidos: [
+      { 
+        id: 3, 
+        game: { titulo: "FIFA 24" }, 
+        mutuante: { nome: "Lucas Silva" }, 
+        data_fim: "2026-02-15" 
+      }
+    ]
+  });
+});
+
+// 2. Tela de Novo Empréstimo (Simulando clique num jogo)
+app.get("/emprestimos/novo", (req, res) => {
+  res.render("emprestimos/novo", {
+    jogo: { id: 5, titulo: "Horizon Zero Dawn", plataforma: "PS5" },
+    amigos: [
+      { id: 10, nome: "Maria Oliveira" },
+      { id: 11, nome: "João Pedro" }
+    ]
+  });
+});
+
+// 3. Tela de Editar Empréstimo
+app.get("/emprestimos/editar/:id", (req, res) => {
+  res.render("emprestimos/editar", {
+    emprestimo: {
+      id: 1,
+      game: { titulo: "God of War" },
+      mutuario: { nome: "Maria Oliveira" },
+      data_fim: "2026-02-10"
+    }
+  });
+});
+
 app.post("/auth/registrar", AuthController.registrar);
 app.post("/auth/login", AuthController.login);
 app.post("/auth/refresh", AuthController.refresh);

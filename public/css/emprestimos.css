@@ -1,0 +1,17 @@
+/* Estilo para os cards de resumo e tabelas */
+.card-resumo {
+    background-color: #e7f0fb;
+    border: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-resumo h2 {
+    color: #1a5fb4;
+    font-weight: bold;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    color: #666;
+}
