@@ -420,6 +420,9 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
-package-lock.json
+.package-lock.json
 node_modules/
 .yarn/
+package.json
+yarn.lock
+.install-state.gz

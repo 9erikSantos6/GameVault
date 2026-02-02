@@ -1,17 +1,39 @@
-/* Estilo para os cards de resumo e tabelas */
+/* public/css/emprestimos.css */
 .card-resumo {
-    background-color: #e7f0fb;
+    background-color: #e7f0fb; /* */
     border: none;
     text-align: center;
     padding: 20px;
+    border-radius: 14px;
 }
 
 .card-resumo h2 {
-    color: #1a5fb4;
+    color: #1a5fb4; /* */
     font-weight: bold;
 }
 
 .table th {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* */
     color: #666;
+}
+
+/* public/css/emprestimos.css */
+
+.card-resumo h2 {
+    font-family: 'BLoxBrk', sans-serif; /* Números em destaque */
+    color: #1a5fb4;
+    font-weight: bold;
+}
+
+.card-resumo p {
+    font-family: 'Bloxblue', sans-serif; /* Legendas dos cards */
+}
+
+h5.fw-bold, h2.mb-4 {
+    font-family: 'BLoxBrk', sans-serif; /* Títulos das seções */
+    letter-spacing: 1px;
+}
+
+.table {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Mantém a tabela legível */
 }

@@ -5,24 +5,35 @@
     <title>GameVault - Adicionar Amigo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/amizade.css">
+    <style>
+        .bg-purple-sidebar { background-color: #5a009d !important; min-height: 100vh; min-width: 250px; }
+        .nav-link:hover, .nav-link.active { background-color: rgba(255, 255, 255, 0.2) !important; }
+    </style>
 </head>
-<body class="d-flex">
-    <nav class="sidebar p-3 text-white">
-        <h2 class="brand mb-4">🎮 GameVault</h2>
-        <a href="/amizade" class="menu-item active py-2 px-3 text-white text-decoration-none d-block rounded">👥 Amigos</a>
+<body class="d-flex bg-light">
+
+    <nav class="bg-purple-sidebar p-3 text-white shadow">
+        <div class="fs-4 fw-bold mb-4 mt-2 px-2">🎮 GAMEVAULT</div>
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item"><a href="/dashboard" class="nav-link text-white">🏠 Dashboard</a></li>
+            <li><a href="/amizade" class="nav-link active text-white">👥 Amigos</a></li>
+            <li><a href="/emprestimos" class="nav-link text-white">🤝 Empréstimos</a></li>
+        </ul>
     </nav>
-    <main class="main-content flex-grow-1 p-4">
+
+    <main class="flex-grow-1 p-5">
         <h2 class="mb-4">➕ Adicionar Amigo</h2>
-        <div class="card shadow-sm col-md-6">
-            <div class="card-body">
+        <div class="card shadow-sm border-0 rounded-4 col-md-6">
+            <div class="card-body p-4">
                 <form action="/amizade/solicitar" method="POST">
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">E-mail do Amigo</label>
-                        <input type="email" name="email" class="form-control" placeholder="Digite o e-mail" required>
+                        <label class="form-label fw-bold">E-mail do Amigo</label>
+                        <input type="email" name="email" class="form-control form-control-lg bg-light" placeholder="Digite o e-mail" required>
                     </div>
                     <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-primary">Enviar Solicitação</button>
-                        <a href="/amizade" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-primary px-4" style="background-color: #5a009d; border: none;">Enviar Solicitação</button>
+                        <a href="/amizade" class="btn btn-secondary px-4">Cancelar</a>
                     </div>
                 </form>
             </div>

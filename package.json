@@ -2,7 +2,10 @@
   "name": "gamevault",
   "version": "1.0.0",
   "main": "app.js",
-  "repository": "https://github.com/9erikSantos6/GameVault.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/9erikSantos6/GameVault.git"
+  },
   "author": "9erikSantos6 <9xerix6@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -28,5 +31,12 @@
     "jest": "^30.2.0",
     "nodemon": "^3.1.11",
     "sequelize-cli": "^6.6.5"
-  }
+  },
+  "description": "Um CRUD simples para genrenciar jogos",
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/9erikSantos6/GameVault/issues"
+  },
+  "homepage": "https://github.com/9erikSantos6/GameVault#readme"
 }
