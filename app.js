@@ -35,8 +35,8 @@ app.get("/dashboard", (_req, res) => {
 
 //Nicole, Jogos
 
-app.get("/usuario", (_req, res) => {
-  res.render("usuario");
+app.get("/usuario/index", (_req, res) => {
+  res.render("usuario/index");
 });
 
 app.get("/usuario/cadastrar-jogo", (_req, res) => {
